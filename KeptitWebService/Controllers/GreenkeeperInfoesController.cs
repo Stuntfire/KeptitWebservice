@@ -24,7 +24,7 @@ namespace KeptitWebService.Controllers
 
         // GET: api/GreenkeeperInfoes/5
         [ResponseType(typeof(GreenkeeperInfo))]
-        public IHttpActionResult GetGreenkeeperInfo(string id)
+        public IHttpActionResult GetGreenkeeperInfo(int id)
         {
             GreenkeeperInfo greenkeeperInfo = db.GreenkeeperInfoes.Find(id);
             if (greenkeeperInfo == null)
@@ -37,14 +37,14 @@ namespace KeptitWebService.Controllers
 
         // PUT: api/GreenkeeperInfoes/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutGreenkeeperInfo(string id, GreenkeeperInfo greenkeeperInfo)
+        public IHttpActionResult PutGreenkeeperInfo(int id, GreenkeeperInfo greenkeeperInfo)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != greenkeeperInfo.GreenkeeperName)
+            if (id != greenkeeperInfo.GreenkeeperID)
             {
                 return BadRequest();
             }
@@ -87,7 +87,7 @@ namespace KeptitWebService.Controllers
             }
             catch (DbUpdateException)
             {
-                if (GreenkeeperInfoExists(greenkeeperInfo.GreenkeeperName))
+                if (GreenkeeperInfoExists(greenkeeperInfo.GreenkeeperID))
                 {
                     return Conflict();
                 }
@@ -97,12 +97,12 @@ namespace KeptitWebService.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = greenkeeperInfo.GreenkeeperName }, greenkeeperInfo);
+            return CreatedAtRoute("DefaultApi", new { id = greenkeeperInfo.GreenkeeperID }, greenkeeperInfo);
         }
 
         // DELETE: api/GreenkeeperInfoes/5
         [ResponseType(typeof(GreenkeeperInfo))]
-        public IHttpActionResult DeleteGreenkeeperInfo(string id)
+        public IHttpActionResult DeleteGreenkeeperInfo(int id)
         {
             GreenkeeperInfo greenkeeperInfo = db.GreenkeeperInfoes.Find(id);
             if (greenkeeperInfo == null)
@@ -125,9 +125,9 @@ namespace KeptitWebService.Controllers
             base.Dispose(disposing);
         }
 
-        private bool GreenkeeperInfoExists(string id)
+        private bool GreenkeeperInfoExists(int id)
         {
-            return db.GreenkeeperInfoes.Count(e => e.GreenkeeperName == id) > 0;
+            return db.GreenkeeperInfoes.Count(e => e.GreenkeeperID == id) > 0;
         }
     }
 }
