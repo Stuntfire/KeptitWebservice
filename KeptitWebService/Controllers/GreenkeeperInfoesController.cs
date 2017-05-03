@@ -44,7 +44,7 @@ namespace KeptitWebService.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != greenkeeperInfo.GreenkeeperID)
+            if (id != greenkeeperInfo.FinishedTasksID)
             {
                 return BadRequest();
             }
@@ -87,7 +87,7 @@ namespace KeptitWebService.Controllers
             }
             catch (DbUpdateException)
             {
-                if (GreenkeeperInfoExists(greenkeeperInfo.GreenkeeperID))
+                if (GreenkeeperInfoExists(greenkeeperInfo.FinishedTasksID))
                 {
                     return Conflict();
                 }
@@ -97,7 +97,7 @@ namespace KeptitWebService.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = greenkeeperInfo.GreenkeeperID }, greenkeeperInfo);
+            return CreatedAtRoute("DefaultApi", new { id = greenkeeperInfo.FinishedTasksID }, greenkeeperInfo);
         }
 
         // DELETE: api/GreenkeeperInfoes/5
@@ -127,7 +127,7 @@ namespace KeptitWebService.Controllers
 
         private bool GreenkeeperInfoExists(int id)
         {
-            return db.GreenkeeperInfoes.Count(e => e.GreenkeeperID == id) > 0;
+            return db.GreenkeeperInfoes.Count(e => e.FinishedTasksID == id) > 0;
         }
     }
 }

@@ -8,7 +8,7 @@ namespace KeptitWebService
     public partial class KeptitContextView : DbContext
     {
         public KeptitContextView()
-            : base("name=KeptitContextView1")
+            : base("name=KeptitContextView2")
         {
             base.Configuration.ProxyCreationEnabled = false;
         }
