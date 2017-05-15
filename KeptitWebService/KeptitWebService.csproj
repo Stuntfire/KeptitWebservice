@@ -199,6 +199,7 @@
     <Compile Include="Controllers\AreasController.cs" />
     <Compile Include="Controllers\FinishedTasksController.cs" />
     <Compile Include="Controllers\GreenkeeperInfoesController.cs" />
+    <Compile Include="Controllers\GreenkeeperMinutterPrDagsController.cs" />
     <Compile Include="Controllers\GreenkeepersController.cs" />
     <Compile Include="Controllers\GreenTasksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -210,9 +211,11 @@
     </Compile>
     <Compile Include="Greenkeeper.cs" />
     <Compile Include="GreenkeeperInfo.cs" />
+    <Compile Include="GreenkeeperMinutterPrDag.cs" />
     <Compile Include="GreenTask.cs" />
     <Compile Include="KeptitContext.cs" />
     <Compile Include="KeptitContextView.cs" />
+    <Compile Include="KeptitContextView2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SubArea.cs" />
   </ItemGroup>
