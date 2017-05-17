@@ -204,6 +204,9 @@
     <Compile Include="Controllers\GreenTasksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SubAreasController.cs" />
+    <Compile Include="Controllers\SumAreaViewsController.cs" />
+    <Compile Include="Controllers\SumTaskDateViewsController.cs" />
+    <Compile Include="Controllers\SumTaskViewsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="FinishedTask.cs" />
     <Compile Include="Global.asax.cs">
@@ -214,10 +217,14 @@
     <Compile Include="GreenkeeperMinutterPrDag.cs" />
     <Compile Include="GreenTask.cs" />
     <Compile Include="KeptitContext.cs" />
+    <Compile Include="KeptitContextSumAreaTask.cs" />
     <Compile Include="KeptitContextView.cs" />
     <Compile Include="KeptitContextView2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SubArea.cs" />
+    <Compile Include="SumAreaView.cs" />
+    <Compile Include="SumTaskDateView.cs" />
+    <Compile Include="SumTaskView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
