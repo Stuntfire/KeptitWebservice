@@ -17,117 +17,117 @@ namespace KeptitWebService.Controllers
         private KeptitContext db = new KeptitContext();
 
         // GET: api/SubAreas
-        public IQueryable<SubArea> GetSubAreas()
-        {
-            return db.SubAreas;
-        }
+        //public IQueryable<SubArea> GetSubAreas()
+        //{
+        //    return db.SubAreas;
+        //}
 
-        // GET: api/SubAreas/5
-        [ResponseType(typeof(SubArea))]
-        public IHttpActionResult GetSubArea(int id)
-        {
-            SubArea subArea = db.SubAreas.Find(id);
-            if (subArea == null)
-            {
-                return NotFound();
-            }
+        //// GET: api/SubAreas/5
+        //[ResponseType(typeof(SubArea))]
+        //public IHttpActionResult GetSubArea(int id)
+        //{
+        //    SubArea subArea = db.SubAreas.Find(id);
+        //    if (subArea == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return Ok(subArea);
-        }
+        //    return Ok(subArea);
+        //}
 
-        // PUT: api/SubAreas/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutSubArea(int id, SubArea subArea)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// PUT: api/SubAreas/5
+        //[ResponseType(typeof(void))]
+        //public IHttpActionResult PutSubArea(int id, SubArea subArea)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            if (id != subArea.SubAreaID)
-            {
-                return BadRequest();
-            }
+        //    if (id != subArea.SubAreaID)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            db.Entry(subArea).State = EntityState.Modified;
+        //    db.Entry(subArea).State = EntityState.Modified;
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!SubAreaExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!SubAreaExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
 
-        // POST: api/SubAreas
-        [ResponseType(typeof(SubArea))]
-        public IHttpActionResult PostSubArea(SubArea subArea)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// POST: api/SubAreas
+        //[ResponseType(typeof(SubArea))]
+        //public IHttpActionResult PostSubArea(SubArea subArea)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            db.SubAreas.Add(subArea);
+        //    db.SubAreas.Add(subArea);
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateException)
-            {
-                if (SubAreaExists(subArea.SubAreaID))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateException)
+        //    {
+        //        if (SubAreaExists(subArea.SubAreaID))
+        //        {
+        //            return Conflict();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return CreatedAtRoute("DefaultApi", new { id = subArea.SubAreaID }, subArea);
-        }
+        //    return CreatedAtRoute("DefaultApi", new { id = subArea.SubAreaID }, subArea);
+        //}
 
-        // DELETE: api/SubAreas/5
-        [ResponseType(typeof(SubArea))]
-        public IHttpActionResult DeleteSubArea(int id)
-        {
-            SubArea subArea = db.SubAreas.Find(id);
-            if (subArea == null)
-            {
-                return NotFound();
-            }
+        //// DELETE: api/SubAreas/5
+        //[ResponseType(typeof(SubArea))]
+        //public IHttpActionResult DeleteSubArea(int id)
+        //{
+        //    SubArea subArea = db.SubAreas.Find(id);
+        //    if (subArea == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            db.SubAreas.Remove(subArea);
-            db.SaveChanges();
+        //    db.SubAreas.Remove(subArea);
+        //    db.SaveChanges();
 
-            return Ok(subArea);
-        }
+        //    return Ok(subArea);
+        //}
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
 
-        private bool SubAreaExists(int id)
-        {
-            return db.SubAreas.Count(e => e.SubAreaID == id) > 0;
-        }
+        //private bool SubAreaExists(int id)
+        //{
+        //    return db.SubAreas.Count(e => e.SubAreaID == id) > 0;
+        //}
     }
 }

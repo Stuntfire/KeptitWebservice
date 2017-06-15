@@ -17,7 +17,7 @@ namespace KeptitWebService
         public virtual DbSet<FinishedTask> FinishedTasks { get; set; }
         public virtual DbSet<Greenkeeper> Greenkeepers { get; set; }
         public virtual DbSet<GreenTask> GreenTasks { get; set; }
-        public virtual DbSet<SubArea> SubAreas { get; set; }
+        //public virtual DbSet<SubArea> SubAreas { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -35,10 +35,10 @@ namespace KeptitWebService
                 .WithRequired(e => e.Greenkeeper)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<SubArea>()
-                .HasMany(e => e.FinishedTasks)
-                .WithRequired(e => e.SubArea)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<SubArea>()
+            //    .HasMany(e => e.FinishedTasks)
+            //    .WithRequired(e => e.SubArea)
+            //    .WillCascadeOnDelete(false);
         }
     }
 }

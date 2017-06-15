@@ -29,10 +29,10 @@ namespace KeptitWebService
         [StringLength(40)]
         public string AreaTitle { get; set; }
 
-        [Key]
-        [Column(Order = 4)]
-        [StringLength(40)]
-        public string SubAreaTitle { get; set; }
+        //[Key]
+        //[Column(Order = 4)]
+        //[StringLength(40)]
+        //public string SubAreaTitle { get; set; }
 
         [Key]
         [Column(Order = 5)]

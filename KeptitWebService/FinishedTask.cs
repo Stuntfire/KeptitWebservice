@@ -16,7 +16,7 @@ namespace KeptitWebService
 
         public int? GreenTaskID { get; set; }
 
-        public int SubAreaID { get; set; }
+        //public int SubAreaID { get; set; }
 
         public int GreenkeeperID { get; set; }
 
@@ -36,6 +36,6 @@ namespace KeptitWebService
 
         public virtual GreenTask GreenTask { get; set; }
 
-        public virtual SubArea SubArea { get; set; }
+        //public virtual SubArea SubArea { get; set; }
     }
 }
