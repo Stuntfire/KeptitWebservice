@@ -16,8 +16,6 @@ namespace KeptitWebService
 
         public int? GreenTaskID { get; set; }
 
-        //public int SubAreaID { get; set; }
-
         public int GreenkeeperID { get; set; }
 
         [Column(TypeName = "date")]
@@ -27,7 +25,7 @@ namespace KeptitWebService
 
         public int Minutes { get; set; }
 
-        [Column(TypeName = "text")]
+        [StringLength(250)]
         public string Notes { get; set; }
 
         public virtual Area Area { get; set; }
@@ -35,7 +33,5 @@ namespace KeptitWebService
         public virtual Greenkeeper Greenkeeper { get; set; }
 
         public virtual GreenTask GreenTask { get; set; }
-
-        //public virtual SubArea SubArea { get; set; }
     }
 }

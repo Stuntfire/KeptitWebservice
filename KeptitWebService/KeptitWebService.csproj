@@ -213,6 +213,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Greenkeeper.cs" />
+    <Compile Include="GreenkeeperContextLogin.cs" />
     <Compile Include="GreenkeeperInfo.cs" />
     <Compile Include="GreenkeeperMinutterPrDag.cs" />
     <Compile Include="GreenTask.cs" />

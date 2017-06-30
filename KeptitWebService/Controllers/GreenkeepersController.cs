@@ -6,6 +6,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using KeptitWebService;
@@ -16,17 +17,17 @@ namespace KeptitWebService.Controllers
     {
         private KeptitContext db = new KeptitContext();
 
-        // GET: api/Greenkeepers
+        // GET: api/Greenkeepers1
         public IQueryable<Greenkeeper> GetGreenkeepers()
         {
             return db.Greenkeepers;
         }
 
-        // GET: api/Greenkeepers/5
+        // GET: api/Greenkeepers1/5
         [ResponseType(typeof(Greenkeeper))]
-        public IHttpActionResult GetGreenkeeper(int id)
+        public async Task<IHttpActionResult> GetGreenkeeper(int id)
         {
-            Greenkeeper greenkeeper = db.Greenkeepers.Find(id);
+            Greenkeeper greenkeeper = await db.Greenkeepers.FindAsync(id);
             if (greenkeeper == null)
             {
                 return NotFound();
@@ -35,9 +36,9 @@ namespace KeptitWebService.Controllers
             return Ok(greenkeeper);
         }
 
-        // PUT: api/Greenkeepers/5
+        // PUT: api/Greenkeepers1/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutGreenkeeper(int id, Greenkeeper greenkeeper)
+        public async Task<IHttpActionResult> PutGreenkeeper(int id, Greenkeeper greenkeeper)
         {
             if (!ModelState.IsValid)
             {
@@ -53,7 +54,7 @@ namespace KeptitWebService.Controllers
 
             try
             {
-                db.SaveChanges();
+                await db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -70,9 +71,9 @@ namespace KeptitWebService.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Greenkeepers
+        // POST: api/Greenkeepers1
         [ResponseType(typeof(Greenkeeper))]
-        public IHttpActionResult PostGreenkeeper(Greenkeeper greenkeeper)
+        public async Task<IHttpActionResult> PostGreenkeeper(Greenkeeper greenkeeper)
         {
             if (!ModelState.IsValid)
             {
@@ -83,7 +84,7 @@ namespace KeptitWebService.Controllers
 
             try
             {
-                db.SaveChanges();
+                await db.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
@@ -100,18 +101,18 @@ namespace KeptitWebService.Controllers
             return CreatedAtRoute("DefaultApi", new { id = greenkeeper.GreenkeeperID }, greenkeeper);
         }
 
-        // DELETE: api/Greenkeepers/5
+        // DELETE: api/Greenkeepers1/5
         [ResponseType(typeof(Greenkeeper))]
-        public IHttpActionResult DeleteGreenkeeper(int id)
+        public async Task<IHttpActionResult> DeleteGreenkeeper(int id)
         {
-            Greenkeeper greenkeeper = db.Greenkeepers.Find(id);
+            Greenkeeper greenkeeper = await db.Greenkeepers.FindAsync(id);
             if (greenkeeper == null)
             {
                 return NotFound();
             }
 
             db.Greenkeepers.Remove(greenkeeper);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
 
             return Ok(greenkeeper);
         }

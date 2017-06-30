@@ -22,6 +22,16 @@ namespace KeptitWebService
         [StringLength(40)]
         public string GreenkeeperName { get; set; }
 
+        [Required]
+        [StringLength(60)]
+        public string GreenkeeperEmail { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string GreenkeeperPassword { get; set; }
+
+        public bool? GreenkeeperAdmin { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FinishedTask> FinishedTasks { get; set; }
     }
